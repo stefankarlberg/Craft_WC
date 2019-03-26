@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="src/js/person.js"></script>
+    <script src="src/js/bmi_calculator.js"></script>
+    <link rel="stylesheet" href="src/css/bmi_style.css">
+</head>
+
+<body>
+    <div id = "bmi_welcome">
+        <h1>Craft Academy</br>Weight Control 3.0</h1>
+        <p>Type in your numbers, check your BMI.</p>
+
+    </div>
+    <div id = "bmi_matt">
+        <p class="bmi_switcher">
+            <span id="metric">METRIC </span>  |  <span id="imperial"> IMPERIAL</span>
+        </p>
+    </div>
+    <div id = "bmi_calc">
+    <form id="calculate">
+        <div id="metric-inputs">
+            <input type="text" id="weight-in-kgs" placeholder="Weight (kg)">
+            <input type="text" id="height-in-cm" placeholder="Height (cm)">
+        </div>
+
+        <button type="submit" id="bmi_button" value="Calculate"> Calculate </button>
+    </form>
+    <div id="bmi_message">
+        <p><span id="display_value"></span>
+        <span id="display_message"></span></p>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+      
+        const global = {}
+
+        global.calculateForm = document.querySelector('#calculate');
+        global.displayValueElement = document.querySelector('#display_value');
+        global.displayMessageElement = document.querySelector('#display_message');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            global.calculateForm.addEventListener('submit', event => {
+                
+                event.preventDefault();
+                
+                calculateBMI()
+                    .then(person => {
+                       
+                        global.displayValueElement.innerHTML = `Your BMI is ${person.bmiValue}`;
+                        global.displayMessageElement.innerHTML = `and you are ${person.bmiMessage}`;
+                    })
+            })
+        });
+
+        const calculateBMI = () => {
+            return new Promise(resolve => {
+                
+                let w = parseFloat(document.getElementById('weight-in-kgs').value);
+                let h = parseFloat(document.getElementById('height-in-cm').value);
+                let person = new Person({
+                    weight: w,
+                    height: h,
+                });
+                person.calculate_bmi();
+                resolve(person);
+            })
+        };
+</script>
+
+</body>
+
+</html>
