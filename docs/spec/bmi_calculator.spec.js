@@ -18,4 +18,9 @@ describe('BMICalculator', () => {
         bmi_calculator.metric_bmi(person);
         expect(person.bmiMessage).to.equal('Overweight');
     });
+
+    it('calculates BMI for a person using imperial method', () => {
+        bmi_calculator.imperial_bmi(person)
+        expect(person.bmiValue).to.eql(26.01)
+    })
 })
