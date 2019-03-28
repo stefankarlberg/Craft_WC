@@ -31,17 +31,16 @@
                 
                 <div class="mui--text-light mui--text-center mui-container">
                         <h4>
-                                <span id="metric"><a id="metric_a" style="color:white; font-weight:bold; letter-spacing:0.6px;" href="#"> METRIC</a> </span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="imperial"><a id ="imperial_a" style="color:white; letter-spacing:0.6px" href="#"> IMPERIAL</a> </span>
-                        
+                            <span id="metric"><a id="metric_a" style="color:white; font-weight:bold; letter-spacing:0.6px;" href="#"> METRIC</a> </span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="imperial"><a id ="imperial_a" style="color:white; letter-spacing:0.6px" href="#"> IMPERIAL</a> </span>
                         </h4>
                 </div>
-                <div id = "bmi_metric_1" class="mui-container">
+                <div id="bmi_metric_1" class="mui-container">
                     <div class="mui-row">
                             <div class="mui-col-md-6 mui-col-md-offset-3">
                                     <form id="calculate" class="mui-form">
-                                    <div id = "metric-inputs" class="mui-row" style="padding-bottom:30px">
+                                    <div id="metric-inputs" class="mui-row" style="padding-bottom:30px">
                                             <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light">
-                                                    <input type="text" id="weight-in-kgs" placeholder="Kg">
+                                                    <input type="text" id="weight-in-kgs" placeholder="Kg">      
                                             </div>
                                             
                                             <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light">
@@ -54,18 +53,19 @@
                     </div>
                 </div>
 
-                <div id="bmi_imperial" class="mui-container imperial" style = "display:none;">
+                <div id="bmi_imperial" class="mui-container imperial" style="display:none;" >
                         <div class="mui-row">
                             <div class="mui-col-md-6 mui-col-md-offset-3">
                                 <form id="calculate" class="mui-form">
-                                        <div id = "metric-inputs" class="mui-row" style="padding-bottom:30px">
+                                        <div id="imperial-inputs" class="mui-row" style="padding-bottom:30px">
                                                 <div class="mui-col-md-6">
                                                         <div class="mui-row">
                                                             <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-left:0px !important; padding-right:0px !important;">
-                                                                <input type="text" id="weight-in-stone" placeholder="Stone">
+                                                                <input type="text" id="weight-in-stone" placeholder="Stone"  value=1>
+                                                
                                                             </div>
                                                             <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-left:0px !important;">
-                                                                <input type="text" id="weight-in-pounds" placeholder="Pounds">
+                                                                <input type="text" id="weight-in-pounds" placeholder="Pounds"  value=1>
                                                             </div>
                                                         </div>    
                                                 </div>
@@ -73,15 +73,15 @@
                                                 <div class="mui-col-md-6">
                                                         <div class="mui-row">
                                                             <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-right:0px !important;">
-                                                                <input type="text" id="height-in-feet" placeholder="Feets">
+                                                                <input type="text" id="height-in-feet" placeholder="Feets" value=1>
                                                             </div>
                                                             <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-left:0px !important; padding-right:0px !important;">
-                                                                <input type="text" id="height-in-inches" placeholder="Inches">
+                                                                <input type="text" id="height-in-inches" placeholder="Inches" value=1>
                                                             </div>
                                                         </div>    
                                                 </div>
                                         </div>
-                                    <button class="mui-btn mui-btn--large mui-btn--primary" type="submit" value="Calculate">Calculate</button>
+                                        <button class="mui-btn mui-btn--large mui-btn--primary" type="submit" value="Calculate">Calculate</button>
                                 </form>
                             </div>
                         </div>
@@ -154,27 +154,35 @@
 
       const calculateBMI = () => {
           return new Promise(resolve => {
-              
+
+              let ws = parseFloat(document.getElementById('weight-in-stone').value);
+              let wp = parseFloat(document.getElementById('weight-in-pounds').value);
+
+              let hf = parseFloat(document.getElementById('height-in-feet').value);
+              let hi = parseFloat(document.getElementById('height-in-inches').value);
+
               let w = parseFloat(document.getElementById('weight-in-kgs').value);
               let h = parseFloat(document.getElementById('height-in-cm').value);
+            
 
-              let i_ws = parseFloat(document.getElementById('weight-in-stone').value);
-              let i_wp = parseFloat(document.getElementById('weight-in-pounds').value);
-
-              let i_hf = parseFloat(document.getElementById('height-in-feet').value);
-              let i_hi = parseFloat(document.getElementById('height-in-inches').value);
+            
 
               let person = new Person({
+
+                
                   weight: w,
                   height: h,    
-                  weight_stone: i_ws,
-                  height_pounds: i_wp,
-                  height_feet: i_hf,
-                  height_inches: i_hi,
+                  weight_stone: ws,
+                  height_pounds: wp,
+                  height_feet: hf,
+                  height_inches: hi,
+            
 
               });
 
+
               person.calculate_bmi();
+
               resolve(person);
           })
          
@@ -182,9 +190,7 @@
 
 
 </script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-        <script>
-        new WOW().init();
+        
         
   </body>
 </html>

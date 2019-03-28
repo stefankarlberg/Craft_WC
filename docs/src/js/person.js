@@ -1,6 +1,7 @@
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Person;
+    module.exports = Person;  
 } 
+
 
 function Person(attr) {
     this.weight = attr.weight;
@@ -9,10 +10,20 @@ function Person(attr) {
     this.weight_pounds = attr.height_pounds;
     this.height_feet = attr.height_feet;
     this.height_inches = attr.height_inches;
+    this.ett = attr.ett;
+
+   
+
 
     this.calculate_bmi = function () {
         calculator = new BMICalculator();
         calculator.metric_bmi(this);
-        calculator.imperial_bmi(this);
     };
-};
+       
+    };
+
+
+  
+
+ 
+    

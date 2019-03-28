@@ -4,9 +4,12 @@ describe('BMICalculator', () => {
     let bmi_calculator
     let person
 
+    
+
     beforeEach(() => {
         person = new Person({weight: 90, height: 186});
         bmi_calculator = new BMICalculator();
+      
     });
 
     it('calculates BMI for a person using metric method', () => {
@@ -19,8 +22,7 @@ describe('BMICalculator', () => {
         expect(person.bmiMessage).to.equal('Overweight');
     });
 
-    it('calculates BMI for a person using imperial method', () => {
-        bmi_calculator.imperial_bmi(person)
-        expect(person.bmiValue).to.eql(26.01)
-    })
+  
+
+  
 })
