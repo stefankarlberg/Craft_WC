@@ -5,7 +5,7 @@ const browser = new BrowserHelpers()
 describe('User can calculate BMI', () => {
     before(async () => {
         await browser.init()
-        await browser.visitPage('http://localhost:8080/')
+        await browser.visitPage('file:///Users/stefankarlberg/craft/Craft_WC/docs/index.html')
     });
 
     beforeEach(async () => {

@@ -56,10 +56,11 @@
 
   h1 {
     font-family: 'Questrial', sans-serif;
-    font-size:40px;
+    font-size: 40px;
     color: white;
     text-align: center;
     letter-spacing: 0.3px;
+    line-height: 43px;
 }
 
 
@@ -89,18 +90,30 @@ p.bmi_switcher{
    padding-bottom: 100px;
  }
 
-
- input {
-    font-size: 16px;
-    padding: 10px 20px 10px 20px;
-    margin: 10px;
-    background: none;
-    color: white;
-    border: 1px solid white;
-    border-radius: 24px;
+  .welcome {
+  padding-top:5%; 
+  padding-bottom:30px;
 }
 
 
+
+.input_imperial_left_column_1 {
+  padding-right:0px !important;
+}
+
+.input_imperial_left_column_2 {
+  padding-left:0px !important;
+ }
+
+ .input_imperial_right_column_1 {
+  padding-right:0px !important;
+}
+
+.input_imperial_right_column_2 {
+  padding-left:0px !important;
+ }
+ 
+ 
 
 #bmi_button {
     background-color: orange;
@@ -109,7 +122,7 @@ p.bmi_switcher{
     color: white;
     padding: 12px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 20px;
 }
 
@@ -161,4 +174,33 @@ button{
    padding-top: 35px;
  }
 
+
+
+ @media screen and (max-width: 570px) {
+  
+  body {
+    background-color: olive;
+  }
+
+  .mui-container.imperial,
+  .mui-container.metric {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+  
+  h1 {
+    font-size:35px;
+    line-height:38px;
+  }
+
+  h3 {
+    margin-top: 11px;
+  }
+  
+
+  #bmi_button {
+  font-size: 16px;
+  } 
+
+}
  

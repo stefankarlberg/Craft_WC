@@ -1,11 +1,10 @@
-
-
 function BMICalculator(){
+
 };
 
 
 
-BMICalculator.prototype.metric_bmi = function(obj) {
+BMICalculator.prototype.bmi = function(obj) {
     let weight = obj.weight;
     let height = obj.height;
 
@@ -17,26 +16,20 @@ BMICalculator.prototype.metric_bmi = function(obj) {
     let full_height_inches = (height_feet  * 12) + height_inches;
     let full_weight_pounds = (weight_stone * 14) + weight_pounds;
 
-   
-
     if (weight > 0 && height > 0) {
       var finalBmi = weight / (height / 100 * height / 100);
       obj.bmiValue =  parseFloat(finalBmi.toFixed(2));
-      setBMIMessage(obj);
+      setBMIMessage(obj) 
     }
+
     else if (full_height_inches > 0 && full_weight_pounds > 0) {
       let BMI = (full_weight_pounds / (full_height_inches * full_height_inches)) * 703;
       obj.bmiValue = parseFloat(BMI.toFixed(2));
       setBMIMessage(obj);
       }
-
-
-
+    
   };
 
- 
-
-   
   
   function setBMIMessage (obj){
     if (obj.bmiValue < 18.5) {
@@ -53,7 +46,7 @@ BMICalculator.prototype.metric_bmi = function(obj) {
     }
   }
 
-   
+ 
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = BMICalculator;

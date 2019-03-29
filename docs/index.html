@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MUI Landing Page with Extras</title>
+    <title>Craft Academy Weight Control 3.0</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="//cdn.muicss.com/mui-latest/extra/mui-colors.min.css">
-    <link rel="stylesheet" href="src/css/bmi_style.css">
     <link rel="stylesheet" href="src/css/mui-rtl.css">
     <link rel="stylesheet" href="src/css/mui-rtl-min.css">
     <link rel="stylesheet" href="src/css/mui.css">
     <link rel="stylesheet" href="src/css/mui-min.css">
+    <link rel="stylesheet" href="src/css/bmi_style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon-16x16.png">
     <script src="//cdn.muicss.com/mui-0.9.41/extra/mui-combined.min.js"></script>
     <script src="src/js/person.js"></script>
     <script src="src/js/bmi_calculator.js"></script>
@@ -20,116 +22,99 @@
     
   </head>
   <body>
-        <header>
-                
-        </header>
+    <header>       
+    </header>
         <div id="content-wrapper" class="mui--text-center">
-                <div class="mui--text-light mui--text-center mui-container" style="padding-top:5%; padding-bottom:30px;">
+            <form id="calculate" class="mui-form">
+                <div class="mui--text-light mui--text-center mui-container welcome">
                         <h1>Craft Academy</br>Weight Control 3.0</h1>
-                        <p>Type in your numbers, check your BMI</p> 
+                        <h3>Type in your numbers, check your BMI</h3> 
                 </div>
                 
                 <div class="mui--text-light mui--text-center mui-container">
-                        <h4>
-                            <span id="metric"><a id="metric_a" style="color:white; font-weight:bold; letter-spacing:0.6px;" href="#"> METRIC</a> </span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="imperial"><a id ="imperial_a" style="color:white; letter-spacing:0.6px" href="#"> IMPERIAL</a> </span>
-                        </h4>
+                    <h4>
+                        <span id="metric"><a id="metric_a" style="color:white; font-weight:bold; letter-spacing:0.6px;" href="#"> METRIC</a> </span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="imperial"><a id ="imperial_a" style="color:white; letter-spacing:0.6px" href="#"> IMPERIAL</a> </span>
+                    </h4>
                 </div>
-                <div id="bmi_metric_1" class="mui-container">
+               
+                <div id="bmi_metric_1" class="mui-container metric">
                     <div class="mui-row">
-                            <div class="mui-col-md-6 mui-col-md-offset-3">
-                                    <form id="calculate" class="mui-form">
-                                    <div id="metric-inputs" class="mui-row" style="padding-bottom:30px">
-                                            <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light">
-                                                    <input type="text" id="weight-in-kgs" placeholder="Kg">      
-                                            </div>
-                                            
-                                            <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light">
-                                                    <input type="text" id="height-in-cm" placeholder="Cm">
-                                            </div>
-                                    </div>
-                                    <button class="mui-btn mui-btn--large mui-btn--primary" type="submit" value="Calculate">Calculate</button>
-                                </form>
-                            </div>
-                    </div>
-                </div>
-
-                <div id="bmi_imperial" class="mui-container imperial" style="display:none;" >
-                        <div class="mui-row">
-                            <div class="mui-col-md-6 mui-col-md-offset-3">
-                                <form id="calculate" class="mui-form">
-                                        <div id="imperial-inputs" class="mui-row" style="padding-bottom:30px">
-                                                <div class="mui-col-md-6">
-                                                        <div class="mui-row">
-                                                            <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-left:0px !important; padding-right:0px !important;">
-                                                                <input type="text" id="weight-in-stone" placeholder="Stone">
-                                                
-                                                            </div>
-                                                            <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-left:0px !important;">
-                                                                <input type="text" id="weight-in-pounds" placeholder="Pounds">
-                                                            </div>
-                                                        </div>    
-                                                </div>
-                                                
-                                                <div class="mui-col-md-6">
-                                                        <div class="mui-row">
-                                                            <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-right:0px !important;">
-                                                                <input type="text" id="height-in-feet" placeholder="Feets">
-                                                            </div>
-                                                            <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light" style="padding-left:0px !important; padding-right:0px !important;">
-                                                                <input type="text" id="height-in-inches" placeholder="Inches">
-                                                            </div>
-                                                        </div>    
-                                                </div>
-                                        </div>
-                                        <button class="mui-btn mui-btn--large mui-btn--primary" type="submit" value="Calculate">Calculate</button>
-                                </form>
+                        <div class="mui-col-sm-6 mui-col-sm-offset-3"> 
+                            <div id="metric-inputs" class="mui-row" style="padding-bottom:30px">
+                                <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light">
+                                    <input type="text" id="weight-in-kgs" placeholder="Kg">    
+                                </div>
+                                <div class="mui-col-md-6 mui-textfield mui--text-center mui--text-light">
+                                    <input type="text" id="height-in-cm" placeholder="Cm">
+                                </div>
                             </div>
                         </div>
                     </div>
-
+                </div>
+               
+           
+                <div id="bmi_imperial" class="mui-container imperial" style="display:none;" >
+                    <div class="mui-row">
+                        <div class="mui-col-md-6 mui-col-md-offset-3">   
+                            <div id="imperial-inputs" class="mui-row" style="padding-bottom:30px">
+                                <div class="mui-col-md-6">
+                                    <div class="mui-row">
+                                        <div class="mui-col-xs-6 mui-textfield mui--text-center mui--text-light input_imperial_left_column_1">
+                                            <input type="text" id="weight-in-stone" placeholder="st">
+                                        </div>
+                                        <div class="mui-col-xs-6 mui-textfield mui--text-center mui--text-light input_imperial_left_column_2">
+                                            <input type="text" id="weight-in-pounds" placeholder="lb">
+                                        </div>
+                                    </div>    
+                                </div>
+                                                
+                                <div class="mui-col-md-6">
+                                    <div class="mui-row">
+                                        <div class="mui-col-xs-6 mui-textfield mui--text-center mui--text-light input_imperial_right_column_1">
+                                            <input type="text" id="height-in-feet" placeholder="ft">
+                                        </div>
+                                        <div class="mui-col-xs-6 mui-textfield mui--text-center mui--text-light input_imperial_right_column_2">
+                                            <input type="text" id="height-in-inches"  placeholder="in">
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="mui-btn mui-btn--large mui-btn--primary" type="submit" value="Calculate">Calculate</button>               
+            </form>
                 <div id="mui--text-light mui--text-center mui-container" style="padding-top:30px;">
                         <p><span id="display_value"></span>
                         <span id="display_message"></span></p>
                 </div>
-
+        </div>
+       
         
-        <footer>
-        </footer>
-
-        <script>
-
-                div_metric = document.getElementById("bmi_metric_1");
-                a_metric = document.getElementById("metric_a");
-
-                div_imperial = document.getElementById("bmi_imperial");
-                a_imperial = document.getElementById("imperial_a");
-
-
-
-                document.getElementById("metric_a").addEventListener("click", function() {
-                    div_metric.style.display = "block";
-                    a_metric.style.fontWeight = "bold";
-                    
-                    div_imperial.style.display = "none";
-                    a_imperial.style.fontWeight = "normal";
-                    
-                });
-
-                document.getElementById("imperial_a").addEventListener("click", function() {
-                    div_metric.style.display = "none";
-                    a_metric.style.fontWeight = "normal";
-                    
-                    div_imperial.style.display = "block";
-                    a_imperial.style.fontWeight = "bold";
-                    
-                });
-
-                
-
-                </script>
     
 
     <script type="text/javascript">
+
+    div_metric = document.getElementById("bmi_metric_1");
+    a_metric = document.getElementById("metric_a");
+    div_imperial = document.getElementById("bmi_imperial");
+    a_imperial = document.getElementById("imperial_a");
+
+            document.getElementById("metric_a").addEventListener("click", function() {
+                div_metric.style.display = "block";
+                a_metric.style.fontWeight = "bold";
+                div_imperial.style.display = "none";
+                a_imperial.style.fontWeight = "normal";
+                document.forms["calculate"].reset();    
+            });
+
+            document.getElementById("imperial_a").addEventListener("click", function() {
+                div_metric.style.display = "none";
+                a_metric.style.fontWeight = "normal";
+                div_imperial.style.display = "block";
+                a_imperial.style.fontWeight = "bold";  
+                document.forms["calculate"].reset();
+            });
 
       const global = {}
 
@@ -163,31 +148,29 @@
 
               let w = parseFloat(document.getElementById('weight-in-kgs').value);
               let h = parseFloat(document.getElementById('height-in-cm').value);
-            
+    
+        let person = new Person({      
+                weight: w,
+                height: h,    
+                weight_stone: ws,
+                weight_pounds: wp,
+                height_feet: hf,
+                height_inches: hi,
+        });
 
-            
-
-              let person = new Person({
-
-                
-                  weight: w,
-                  height: h,    
-                  weight_stone: ws,
-                  height_pounds: wp,
-                  height_feet: hf,
-                  height_inches: hi,
-            
-
-              });
-
-
+              
               person.calculate_bmi();
-
               resolve(person);
+            
+
+             
+
+             
           })
          
+         
       };
-
+     
 
 </script>
         
