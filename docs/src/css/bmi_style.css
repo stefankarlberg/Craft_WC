@@ -176,6 +176,18 @@ button{
  }
 
 
+ @media (orientation: landscape) {
+  body {
+    background-image: url(../images/background_bmi.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 300%;
+    height: 100%;
+    background-attachment: scroll;
+  }
+
+}
+
 
  @media screen and (max-width: 570px) {
   
